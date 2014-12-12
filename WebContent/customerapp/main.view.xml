@@ -1,9 +1,48 @@
 <core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
 		controllerName="customerapp.main" xmlns:html="http://www.w3.org/1999/xhtml">
-	<Page title="Title">
+	<Page title="Title" class="demo">
 		<content>
-			<ObjectHeader title="Hi Customer"></ObjectHeader>
-			<ObjectIdentifier text="Welcome to SAP Store"></ObjectIdentifier>
+		<Panel>
+		
+			<ObjectHeader title="Hi Customer">
+			<attributes>
+			<ObjectAttribute text="Welcome to SAP Store"></ObjectAttribute>
+			<ObjectAttribute text="Please wait while our representative comes in help of you "></ObjectAttribute>
+			</attributes>
+			</ObjectHeader>
+			
+			 <Panel expandable="true" expanded="false" headerText="Representative Details">    
+    <content>
+     <VBox>
+      <Text text="Name :" />
+       <Image src=""></Image>
+       
+     </VBox>
+    </content>
+  </Panel>
+			
+			<Panel expandable="true" expanded="false" headerText="Offers">    
+    <content>
+     <VBox>
+      <Text text="1.25% on PUMA " />
+       <Text text="2.Buy two get one free on UCB" />
+        <Text text="3. Get 250 cash back on global Desi" />
+     </VBox>
+    </content>
+  </Panel>
+  
+  
+  <Panel expandable="true" expanded="false" headerText="Help">    
+    <content>
+     <VBox>
+      <Text text="Mail at : help@lifestyle.com" />
+       <Text text="Call : 9000400094" />
+       
+     </VBox>
+    </content>
+  </Panel>
+  
+  </Panel>
 		</content>
 	</Page>
 </core:View>

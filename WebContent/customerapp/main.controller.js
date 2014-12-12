@@ -7,6 +7,7 @@ sap.ui.controller("customerapp.main", {
 */
 	onInit: function() {
 		console.log("hello");
+		  
 	},
 
 /**
@@ -23,9 +24,12 @@ sap.ui.controller("customerapp.main", {
 * This hook is the same one that SAPUI5 controls get after being rendered.
 * @memberOf customerapp.main
 */
-//	onAfterRendering: function() {
-//
-//	},
+	onAfterRendering: function() {
+//		  $(".demo").backstretch("http://static2.1ms.net/christmas-shopping-wide-wallpaper-532785.jpg");
+		 $(".demo").backstretch("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSdWdI-5KKlkcPak1klZSM_J5B3xgshBFCbzhDCbvgEF57DfCRO");
+
+		$.backstretch("http://dl.dropbox.com/u/515046/www/garfield-interior.jpg");
+	},
 
 /**
 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
