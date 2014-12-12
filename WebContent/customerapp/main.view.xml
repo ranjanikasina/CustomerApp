@@ -1,0 +1,9 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="customerapp.main" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title">
+		<content>
+			<ObjectHeader title="Hi Customer"></ObjectHeader>
+			<ObjectIdentifier text="Welcome to SAP Store"></ObjectIdentifier>
+		</content>
+	</Page>
+</core:View>
