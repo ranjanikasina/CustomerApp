@@ -41,13 +41,15 @@ sap.ui
 											that.getView().setModel(oModel,
 													"SalesRepDetails");
 											that.getCustOfferData();
-											$(".repImg").addClass("img-responsive img-circle");
+											$(".repImg")
+													.addClass(
+															"img-responsive img-circle");
 										});
 					},
 
 					getCustOfferData : function() {
 						var that = this;
-						var sURL = "https://s1hanaxs.neo.ondemand.com/i310863sapdev/i310863/customer.xsjs?customerid="
+						var sURL = "https://s6hanaxs.hanatrial.ondemand.com/i310863trial/i310863/customer.xsjs?customerid=300"
 								+ that.oCustData.custid;
 						jQuery.getJSON(sURL, function(oCustDetails) {
 							that.oCustDetails = oCustDetails;
@@ -75,16 +77,23 @@ sap.ui
 					 * @memberOf customerapp.main
 					 */
 					onAfterRendering : function() {
-						// $(".demo").backstretch("http://static2.1ms.net/christmas-shopping-wide-wallpaper-532785.jpg");
 						$(".demo").backstretch("customerapp/Img/img1.jpg");
+						$(".demo1").backstretch(this.oCustData.salesimg);
+						$(".demo1").blurjs({
+							source : 'body',
+							radius : 10
+						});
 						$(".textColor").css("color", "red");
 						jQuery(".repText").html(
-								"<b>" + this.oCustData.salesname + "</b>")
-								.css("font-size", "x-large").css("text-align",
-										"center").css("margin-top", "1em");
-						jQuery(".repImg").prepend('<img src="'+this.oCustData.salesimg+'" />');
+								"<b>" + this.oCustData.salesname + "</b>").css(
+								"font-size", "x-large").css("text-align",
+								"center").css("margin-top", "1em");
+						jQuery(".repImg")
+								.prepend(
+										'<img src="' + this.oCustData.salesimg
+												+ '" />');
 						$(".repImg").addClass("img-responsive img-circle");
-						
+
 					},
 
 				/**
