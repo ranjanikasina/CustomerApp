@@ -21,11 +21,12 @@ sap.ui
 						this.oCustData = {};
 						this.oCustDetails = {};
 						jQuery.proxy(this.CustData(), this);
-						// jQuery.proxy(this.getCustDetailedData(),this);
 						interval = window.setInterval(function() {
 							that.CustData();
 						}, 3000);
-						// setInterval(function(){ that.CustData(); }, 5000);
+						// setInterval(function() {
+						// that.CustData();
+						// }, 5000);
 
 					},
 					CustData : function() {
@@ -40,23 +41,43 @@ sap.ui
 													that.oCustData);
 											that.getView().setModel(oModel,
 													"SalesRepDetails");
-											that.getCustOfferData();
 											$(".repImg")
 													.addClass(
 															"img-responsive img-circle");
 										});
+						that.getCustOfferData();
 					},
 
 					getCustOfferData : function() {
 						var that = this;
-						var sURL = "https://s6hanaxs.hanatrial.ondemand.com/i310863trial/i310863/customer.xsjs?customerid=300"
+						var sURL = "https://s6hanaxs.hanatrial.ondemand.com/i310863trial/i310863/customer.xsjs?customerid="
 								+ that.oCustData.custid;
-						jQuery.getJSON(sURL, function(oCustDetails) {
-							that.oCustDetails = oCustDetails;
-							var oModel = new sap.ui.model.json.JSONModel(
-									oCustDetails);
-							that.getView().setModel(oModel, "SalesRepDetails");
-						});
+						jQuery
+								.getJSON(
+										sURL,
+										function(oCustDetails) {
+											that.oCustDetails = oCustDetails;
+											var oModel = new sap.ui.model.json.JSONModel(
+													that.oCustDetails);
+											that.getView().setModel(oModel,
+													"CustomerDetails");
+											if (oCustDetails.AreaOfIntr === "Electronic Goods") {
+												jQuery(".img1")
+														.prepend(
+																'<img src="customerapp/Img/sports.jpg" />');
+												jQuery(".img2")
+														.prepend(
+																'<img src="http://img6a.flixcart.com/www/promos/new/20141107_172613_730x300_category-landing-page-74.jpg"/>');
+												jQuery(".img3")
+														.prepend(
+																'<img src="customerapp/Img/Adidassoccer.jpg"/>');
+												jQuery(".img4")
+														.prepend(
+																'<img src="http://img5a.flixcart.com/www/promos/new/20141204_104629_730x300_image-730-300-7.jpg"/>');
+											}
+											// }
+										});
+
 					},
 					/**
 					 * Similar to onAfterRendering, but this hook is invoked
@@ -77,13 +98,18 @@ sap.ui
 					 * @memberOf customerapp.main
 					 */
 					onAfterRendering : function() {
-						$(".demo").backstretch("customerapp/Img/img1.jpg");
-						$(".demo1").backstretch(this.oCustData.salesimg);
+
+						$(".demo")
+								.backstretch(
+										"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRnC0kIClHVEOw7qGUjpSoDj38GSuiZVb8mLZlwhXyoVlfHx7sz");
+
+						// $(".demo").css("background-color","Orange")
+						 $(".demo1").backstretch(this.oCustData.salesimg);
 						$(".demo1").blurjs({
 							source : 'body',
 							radius : 10
 						});
-						$(".textColor").css("color", "red");
+						$(".textColor").css("color", "black");
 						jQuery(".repText").html(
 								"<b>" + this.oCustData.salesname + "</b>").css(
 								"font-size", "x-large").css("text-align",
@@ -93,6 +119,7 @@ sap.ui
 										'<img src="' + this.oCustData.salesimg
 												+ '" />');
 						$(".repImg").addClass("img-responsive img-circle");
+						// $(".custDetails").
 
 					},
 

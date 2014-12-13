@@ -1,14 +1,31 @@
-<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
-	xmlns="sap.m" controllerName="customerapp.main" xmlns:html="http://www.w3.org/1999/xhtml">
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout" xmlns="sap.m" controllerName="customerapp.main"
+	xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page title="Hack the Code Store" class="demo">
 		<content>
-		<html:body>
-			<Panel class="demo1" >
-							<l:Grid  defaultSpan="L6 M6 S6">
-								<html:div class="repText textColor"></html:div>
-								<html:div class="repImg"></html:div>
-								</l:Grid>
-			</Panel>
+			<html:body>
+				<VBox>
+				<HBox>
+				<ObjectHeader title="Welcome"></ObjectHeader>
+				<ObjectHeader title="{CustomerDetails>/CustomerName}"></ObjectHeader>
+			</HBox>
+					<Panel>
+						<Carousel loop="true" height="25em">
+							<pages>
+									<html:div class="img1"/>
+									<html:div class="img2"/>
+									<html:div class="img3"/>
+									<html:div class="img4"/>
+							</pages>
+						</Carousel>
+					</Panel>
+					<Panel class="demo1">
+						<l:Grid defaultSpan="L6 M6 S6">
+							<html:div class="repText textColor"></html:div>
+							<html:div class="repImg"></html:div>
+						</l:Grid>
+					</Panel>
+				</VBox>
 			</html:body>
 		</content>
 	</Page>
